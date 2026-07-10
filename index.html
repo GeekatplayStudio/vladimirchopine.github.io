@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vladimir Chopine — Senior Software Engineer</title>
+<meta name="description" content="Vladimir Chopine — Senior Software Engineer. A decade of technical leadership at Hughes Network Systems, daily hands-on with Claude Code and Cursor, and 30 years shipping production software.">
+<style>
+  :root{
+    --bg:#0b1220;
+    --bg-alt:#0f1a2e;
+    --card:#131f38;
+    --border:#233252;
+    --text:#e6edf7;
+    --muted:#94a3b8;
+    --accent:#2dd4d0;
+    --accent2:#5eead4;
+    --maxw:1040px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55;
+  }
+  a{color:var(--accent2);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+
+  /* Nav */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(11,18,32,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  .brand{font-weight:700;letter-spacing:0.02em;color:var(--text);font-size:16px;}
+  .brand span{color:var(--accent);}
+  nav.links{display:flex;gap:22px;flex-wrap:wrap;}
+  nav.links a{color:var(--muted);font-size:14px;font-weight:500;}
+  nav.links a:hover{color:var(--text);text-decoration:none;}
+  .nav-cta{
+    display:inline-block;background:var(--accent);color:#04211f;
+    padding:8px 16px;border-radius:6px;font-weight:600;font-size:14px;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--accent2);text-decoration:none;}
+
+  /* Hero */
+  section.hero{padding:76px 0 56px;}
+  .hero-inner{display:flex;align-items:center;gap:44px;justify-content:space-between;}
+  .hero-text{flex:1 1 auto;min-width:0;}
+  .hero-photo{flex:0 0 auto;}
+  .hero-photo img{
+    width:200px;height:200px;border-radius:50%;object-fit:cover;
+    border:3px solid var(--border);box-shadow:0 0 0 6px rgba(45,212,208,0.08);
+  }
+  @media (max-width:720px){
+    .hero-inner{flex-direction:column-reverse;text-align:center;gap:28px;}
+    .hero-photo img{width:150px;height:150px;}
+    .cta-row{justify-content:center;}
+    .loc-badge{justify-content:center;}
+  }
+  .eyebrow{
+    color:var(--accent);font-size:13px;font-weight:700;letter-spacing:0.12em;
+    text-transform:uppercase;margin-bottom:14px;
+  }
+  h1{font-size:40px;line-height:1.15;margin:0 0 10px;color:#fff;}
+  .role{font-size:19px;color:var(--muted);margin:0 0 20px;font-weight:500;}
+  .pitch{font-size:17px;color:#c7d2e3;max-width:640px;margin:0 0 28px;}
+  .loc-badge{
+    display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--muted);
+    margin-bottom:28px;
+  }
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block;}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    padding:12px 22px;border-radius:7px;font-weight:600;font-size:15px;display:inline-block;
+    border:1px solid var(--border);
+  }
+  .btn-primary{background:var(--accent);color:#04211f;border-color:var(--accent);}
+  .btn-primary:hover{background:var(--accent2);text-decoration:none;}
+  .btn-ghost{color:var(--text);background:transparent;}
+  .btn-ghost:hover{border-color:var(--accent);text-decoration:none;color:var(--accent2);}
+
+  /* Stats strip */
+  section.stats{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-alt);padding:32px 0;}
+  .stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;text-align:center;}
+  .stat-num{font-size:22px;font-weight:700;color:var(--accent2);}
+  .stat-label{font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.3;}
+
+  /* Sections generic */
+  section{padding:64px 0;}
+  h2{font-size:26px;color:#fff;margin:0 0 8px;}
+  .section-sub{color:var(--muted);font-size:15px;margin:0 0 32px;max-width:620px;}
+  .rule{width:40px;height:3px;background:var(--accent);border-radius:2px;margin-bottom:18px;}
+
+  .lede{font-size:16px;color:#c7d2e3;max-width:680px;margin-bottom:16px;}
+
+  /* Projects */
+  .project-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .project-card{
+    background:var(--card);border:1px solid var(--border);border-radius:10px;
+    padding:24px;display:flex;flex-direction:column;
+  }
+  .project-card h3{margin:0 0 4px;font-size:19px;color:#fff;}
+  .project-tag{color:var(--accent2);font-size:13.5px;font-weight:600;margin-bottom:14px;}
+  .project-card ul{margin:0 0 16px;padding-left:18px;color:#c7d2e3;font-size:14.5px;}
+  .project-card li{margin-bottom:8px;}
+  .tech-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;}
+  .tech-tag{
+    font-size:12px;color:var(--muted);border:1px solid var(--border);
+    padding:3px 9px;border-radius:20px;
+  }
+  .gh-link{margin-top:36px;font-size:15px;}
+
+  /* Experience */
+  .job{border-left:2px solid var(--border);padding-left:22px;margin-bottom:36px;position:relative;}
+  .job::before{
+    content:"";position:absolute;left:-6px;top:4px;width:10px;height:10px;border-radius:50%;
+    background:var(--accent);
+  }
+  .job-title-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:2px;}
+  .job-title{font-size:18px;font-weight:700;color:#fff;}
+  .job-dates{font-size:14px;color:var(--muted);font-weight:600;white-space:nowrap;}
+  .job-sub{font-size:14px;color:var(--muted);font-style:italic;margin-bottom:10px;}
+  .job ul{margin:0;padding-left:18px;color:#c7d2e3;font-size:14.5px;}
+  .job li{margin-bottom:6px;}
+  .earlier{
+    border-left:2px solid var(--border);padding-left:22px;color:var(--muted);font-size:14px;
+  }
+  .earlier strong{color:#c7d2e3;}
+
+  /* Skills */
+  .skill-group{margin-bottom:20px;}
+  .skill-cat{font-size:13px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;}
+  .pill-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .pill{
+    background:var(--card);border:1px solid var(--border);color:#dbe6f5;
+    padding:6px 13px;border-radius:20px;font-size:13.5px;
+  }
+
+  /* Credentials */
+  .cred-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .cred-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;text-align:center;}
+  .cred-card .k{font-size:14.5px;font-weight:600;color:#fff;}
+  .cred-card .v{font-size:13px;color:var(--muted);margin-top:4px;}
+
+  /* Community */
+  .community-box{
+    background:var(--bg-alt);border:1px solid var(--border);border-radius:10px;padding:28px;
+  }
+  .community-box p{margin:0 0 14px;color:#c7d2e3;font-size:15.5px;}
+  .community-links{display:flex;gap:18px;font-size:14.5px;flex-wrap:wrap;}
+
+  /* Footer */
+  footer{border-top:1px solid var(--border);padding:40px 0;}
+  .footer-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .footer-links{display:flex;gap:20px;font-size:14.5px;flex-wrap:wrap;}
+  .copyright{color:var(--muted);font-size:13px;}
+
+  @media (max-width:760px){
+    .stats-grid{grid-template-columns:repeat(2,1fr);}
+    .project-grid{grid-template-columns:1fr;}
+    .cred-grid{grid-template-columns:repeat(2,1fr);}
+    h1{font-size:31px;}
+    nav.links{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">Vladimir Chopine<span>.</span></div>
+    <nav class="links">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#community">Teaching</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="Vladimir_Chopine_Resume_General.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-text">
+      <div class="eyebrow">Senior Software Engineer</div>
+      <h1>Vladimir Chopine</h1>
+      <p class="role">Full-Stack Development &amp; AI-Native Engineering</p>
+      <p class="pitch">Senior engineer with a decade of technical leadership at Hughes Network Systems, building agentic AI systems daily with Claude Code and Cursor — backed by 30 years shipping production software.</p>
+      <div class="loc-badge"><span class="dot"></span> Salt Lake City, UT metro · Open to remote or relocation</div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="Vladimir_Chopine_Resume_General.pdf" target="_blank" rel="noopener">Download Résumé</a>
+        <a class="btn btn-ghost" href="mailto:geekatplay@gmail.com">Email</a>
+        <a class="btn btn-ghost" href="https://linkedin.com/in/geekatplay" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/GeekatplayStudio" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="vladimir-headshot.jpg" alt="Vladimir Chopine" width="200" height="200">
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap stats-grid">
+    <div>
+      <div class="stat-num">10</div>
+      <div class="stat-label">Years Technical Leadership @ Hughes</div>
+    </div>
+    <div>
+      <div class="stat-num">850+</div>
+      <div class="stat-label">GitHub Stars, 29 Repos</div>
+    </div>
+    <div>
+      <div class="stat-num">B.S.</div>
+      <div class="stat-label">Computer Science</div>
+    </div>
+    <div>
+      <div class="stat-num">MCSD</div>
+      <div class="stat-label">Certified</div>
+    </div>
+    <div>
+      <div class="stat-num">30+</div>
+      <div class="stat-label">Years Shipping Production Software</div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="rule"></div>
+    <h2>Summary</h2>
+    <p class="lede">For the last decade I've been a senior engineer and technical lead at Hughes Network Systems — architecting systems, reviewing code, and mentoring more than ten engineers, several of whom were promoted into senior roles. I've also driven company-wide adoption of AI agentic programming there — the only engineer championing it in my group, with influence reaching across the organization, contributing to a roughly 10x productivity increase for the teams that adopted it. That sits at the top of 30 years writing production software: Ruby on Rails, Angular, React, TypeScript, Node.js, and AWS, mostly at scale inside established engineering teams.</p>
+    <p class="lede">Alongside that, I build agentic AI systems by hand: a security architecture for swarm robotics, a SaaS app shipped end-to-end with Claude Code and Cursor, and generative-AI pipelines trained on custom models. I didn't pick up AI tools last year — I've been building and teaching agentic workflows to a technical audience for years.</p>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="rule"></div>
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div class="job-title-row">
+        <div class="job-title">Senior Software Engineer — Hughes Network Systems</div>
+        <div class="job-dates">Aug 2014 – Present</div>
+      </div>
+      <div class="job-sub">Advanced network and software solutions for employee training, management systems, and consumer-facing media signage. Greater Salt Lake City Area.</div>
+      <ul>
+        <li>Led full-stack development using Ruby on Rails, Angular, React, TypeScript, and Node.js, delivering enterprise web applications at scale.</li>
+        <li>Served as technical lead on a small engineering team — owned architecture decisions, code review, and delivery.</li>
+        <li>Mentored 10+ engineers over the course of the role; several promoted into senior positions.</li>
+        <li>Deployed and operated services on AWS using Docker and Kubernetes, including CI/CD pipelines.</li>
+        <li>Championed adoption of AI agentic programming company-wide — the only engineer driving it in the group, with influence reaching across the organization — contributing to a roughly 10x productivity increase for teams that adopted it.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-title-row">
+        <div class="job-title">Founder &amp; Technical Lead — GeekatPlay Studio</div>
+        <div class="job-dates">Aug 2001 – Present</div>
+      </div>
+      <div class="job-sub">Digital production and engineering lab spanning AI tooling, embedded systems, and technical education. Salt Lake City, UT.</div>
+      <ul>
+        <li>Designed and built HiveLink, a self-healing swarm-robotics mesh network with a full federated security architecture.</li>
+        <li>Maintain 29 public GitHub repositories (850+ stars) covering AI tooling, ComfyUI workflows, and automation scripts.</li>
+        <li>Built and operate a sponsor management automation system handling 48 active deals end to end.</li>
+        <li>Teach software engineering and generative AI workflows to a technical audience of 96,000+; author of two technical books (Focal Press).</li>
+      </ul>
+    </div>
+
+    <div class="earlier">
+      <strong>Earlier Experience:</strong> Senior UI Developer, Softwise (2009–2014) · Senior Interactive Technologist, Merit Medical Systems (2007–2009) · Senior UI Developer &amp; Art Director, iCentris (2005–2007) · Database Manager &amp; Web Admin, Linux Networx (2001–2005) · Lead Senior Interactive Technologist, Euro RSCG/DSW Partners (1999–2001) · Software Developer &amp; Systems Analyst, Mitsubishi Silicon America (1997–1999) · Programmer &amp; DBA, Spirit Mountain Casino (1994–1997) — full-stack web and enterprise development across financial services, healthcare, advertising, semiconductor, and gaming industries.
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="rule"></div>
+    <h2>Featured Projects</h2>
+    <p class="section-sub">Independent engineering work, built and shipped outside of day-job employment.</p>
+    <div class="project-grid">
+
+      <div class="project-card">
+        <h3>HiveLink / Ash-Mesh</h3>
+        <div class="project-tag">Swarm-robotics security architecture</div>
+        <ul>
+          <li>Self-healing mesh network for swarm robotics on ESP32-class hardware, LoRa, and MQTT — designed to detect and quarantine compromised drones without human intervention.</li>
+          <li>Formal PRD, TRD, and Hardware BOM / Comms Trade Study documentation.</li>
+          <li>Quarantine state machine with 7 states (UNKNOWN, TRUSTED, SUSPECT, QUARANTINED, HONEYPOT, BLOCKED, RELEASED), tunable suspicion scoring, and recovery flows keyed to hardware root-of-trust.</li>
+          <li>Federated trust-list format, interop beacon format, and a decoy-data generator using canary tokens. Architecture is explicitly defensive by design — offensive/reflashing capability was deliberately declined.</li>
+        </ul>
+        <div class="tech-tags">
+          <span class="tech-tag">ESP32</span><span class="tech-tag">LoRa</span><span class="tech-tag">MQTT</span>
+          <span class="tech-tag">AEAD</span><span class="tech-tag">Mesh Networking</span><span class="tech-tag">Systems Security</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>TripCraft</h3>
+        <div class="project-tag">SaaS app built end-to-end with agentic coding tools</div>
+        <ul>
+          <li>A Next.js/Tailwind/Vercel SaaS application built live, end-to-end, using Claude Code, Cursor, GitHub Copilot, Kiro, Continue.dev, and Ollama.</li>
+          <li>Serves as the flagship demo project for an in-production course on agentic engineering workflows and tool orchestration.</li>
+          <li>Demonstrates production-grade output from AI-native development practices, not just prototyping.</li>
+        </ul>
+        <div class="tech-tags">
+          <span class="tech-tag">Next.js</span><span class="tech-tag">Tailwind CSS</span><span class="tech-tag">Vercel</span>
+          <span class="tech-tag">Claude Code</span><span class="tech-tag">Cursor</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>Image Express</h3>
+        <div class="project-tag">Open-source AI-native design platform</div>
+        <ul>
+          <li>An open-source design platform (imageexpress.xyz) orchestrating multiple generative image models in a single creative workspace.</li>
+          <li>Owned solo end-to-end — architecture, interface, and generative pipeline integration — iterating directly against real usage.</li>
+        </ul>
+        <div class="tech-tags">
+          <span class="tech-tag">Generative AI</span><span class="tech-tag">Open Source</span><span class="tech-tag">Design Tooling</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>ComfyUI Generative Pipelines</h3>
+        <div class="project-tag">Custom generative-AI pipelines for production creative work</div>
+        <ul>
+          <li>Custom ComfyUI workflows for portrait restoration and multi-view character generation.</li>
+          <li>Trains custom LoRA and VLM models fine-tuned for specific production tasks.</li>
+        </ul>
+        <div class="tech-tags">
+          <span class="tech-tag">ComfyUI</span><span class="tech-tag">LoRA</span><span class="tech-tag">Stable Diffusion</span><span class="tech-tag">Model Training</span>
+        </div>
+      </div>
+
+    </div>
+    <p class="gh-link">29 repositories, 850+ stars on <a href="https://github.com/GeekatplayStudio" target="_blank" rel="noopener">GitHub →</a></p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="rule"></div>
+    <h2>Skills</h2>
+
+    <div class="skill-group">
+      <div class="skill-cat">Languages</div>
+      <div class="pill-row">
+        <span class="pill">JavaScript / TypeScript</span><span class="pill">Python</span><span class="pill">Ruby</span>
+        <span class="pill">Java</span><span class="pill">C#</span><span class="pill">SQL</span><span class="pill">PHP</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-cat">Frontend</div>
+      <div class="pill-row">
+        <span class="pill">React</span><span class="pill">Angular</span><span class="pill">HTML/CSS</span><span class="pill">Bootstrap</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-cat">Backend</div>
+      <div class="pill-row">
+        <span class="pill">Node.js</span><span class="pill">Ruby on Rails</span><span class="pill">ASP.NET MVC</span>
+        <span class="pill">REST APIs</span><span class="pill">Microservices</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-cat">Data</div>
+      <div class="pill-row">
+        <span class="pill">PostgreSQL</span><span class="pill">MySQL</span><span class="pill">MongoDB</span><span class="pill">Redis</span><span class="pill">MSSQL</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-cat">Cloud / DevOps</div>
+      <div class="pill-row">
+        <span class="pill">AWS</span><span class="pill">Docker</span><span class="pill">Kubernetes</span><span class="pill">CI/CD</span><span class="pill">GitHub Actions</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-cat">AI / LLM</div>
+      <div class="pill-row">
+        <span class="pill">LangGraph</span><span class="pill">LangChain</span><span class="pill">MCP</span><span class="pill">n8n</span>
+        <span class="pill">OpenAI API</span><span class="pill">Anthropic API</span><span class="pill">RAG</span><span class="pill">Pinecone</span><span class="pill">Weaviate</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-cat">AI Dev Tools (Daily Use)</div>
+      <div class="pill-row">
+        <span class="pill">Claude Code</span><span class="pill">Cursor</span><span class="pill">GitHub Copilot</span>
+        <span class="pill">Kiro</span><span class="pill">Continue.dev</span><span class="pill">Ollama</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-cat">Hardware / IoT</div>
+      <div class="pill-row">
+        <span class="pill">ESP32</span><span class="pill">LoRa</span><span class="pill">MQTT</span><span class="pill">Mesh Networking</span><span class="pill">AEAD Security</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="credentials">
+  <div class="wrap">
+    <div class="rule"></div>
+    <h2>Credentials</h2>
+    <div class="cred-grid">
+      <div class="cred-card">
+        <div class="k">SIGGRAPH</div>
+        <div class="v">Speaker</div>
+      </div>
+      <div class="cred-card">
+        <div class="k">2 Books</div>
+        <div class="v">Focal Press</div>
+      </div>
+      <div class="cred-card">
+        <div class="k">B.S.</div>
+        <div class="v">Computer Science</div>
+      </div>
+      <div class="cred-card">
+        <div class="k">MCSD</div>
+        <div class="v">Microsoft Certified Solutions Developer</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="community">
+  <div class="wrap">
+    <div class="rule"></div>
+    <h2>Teaching &amp; Community</h2>
+    <div class="community-box">
+      <p>Alongside full-time engineering roles, I've spent 20 years building a technical education platform: 3,000+ tutorials, a YouTube audience of 96,000+ across two channels, and community platforms including a Discord server and a local Adobe user group.</p>
+      <p>It runs largely on its own at this point — a body of work I maintain, not a daily time commitment that competes with a full-time role.</p>
+      <div class="community-links">
+        <a href="https://www.youtube.com/@geekatplay" target="_blank" rel="noopener">YouTube →</a>
+        <a href="https://github.com/GeekatplayStudio" target="_blank" rel="noopener">GitHub →</a>
+        <a href="https://linkedin.com/in/geekatplay" target="_blank" rel="noopener">LinkedIn →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap footer-row">
+    <div class="copyright">© 2026 Vladimir Chopine</div>
+    <div class="footer-links">
+      <a href="mailto:geekatplay@gmail.com">geekatplay@gmail.com</a>
+      <a href="https://linkedin.com/in/geekatplay" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/GeekatplayStudio" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.youtube.com/@geekatplay" target="_blank" rel="noopener">YouTube</a>
+      <a href="Vladimir_Chopine_Resume_General.pdf" target="_blank" rel="noopener">Résumé</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
